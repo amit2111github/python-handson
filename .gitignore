@@ -1,0 +1,41 @@
+# Python bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Python packaging
+*.egg-info/
+*.eggs/
+dist/
+build/
+*.egg
+
+# Dependency directories
+Pipfile.lock
+
+# .env files (for environment variables)
+.env
+
+# IDE/Editor folders
+.vscode/
+.idea/
+
+# macOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# pytest cache
+.cache/
+
+# FastAPI-specific stuff
+*.log
