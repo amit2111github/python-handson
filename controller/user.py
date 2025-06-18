@@ -2,7 +2,7 @@ from schema.user import SignInRequest,SignUpRequest,updateUserRequest
 from fastapi import HTTPException, status, Response,Request
 from accessor.auth import get_user_from_email,add_user,update_user_from_id
 from utils.index import hash_password,verify_password , generate_token
-async def  signin(data : SignInRequest):
+async def  signin(data : SignInRequest,response : Response):
     password = data.password
     email = data.email
     if not password or not email:
@@ -28,6 +28,14 @@ async def  signin(data : SignInRequest):
     
     del user["password"]
     token = generate_token(user)
+    response.set_cookie(
+        key="token",
+        value=token, 
+        httponly=True,
+        max_age=3600,
+        secure=False,       
+        samesite="None" 
+    )
     return {"token" : token , "user" : user}
     
     
