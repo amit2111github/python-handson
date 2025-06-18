@@ -5,9 +5,9 @@ from controller.user import signin , signup
 app = APIRouter()
 
 @app.post("/signin")
-async def signin_route(data : SignInRequest):
+async def signin_route(data : SignInRequest, response : Response):
     try:
-        return await signin(data)
+        return await signin(data,response)
     except Exception as e:
         print(e)
         raise e
