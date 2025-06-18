@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.11
 WORKDIR /app
 # Optionally, install system dependencies
 COPY . .
@@ -11,4 +11,4 @@ RUN apt-get update && apt-get install -y \
 
 
 RUN pip install --no-cache-dir -r requirements.txt
-CMD ["Python3" , "main.py"]
+CMD ["python3", "main.py"]
